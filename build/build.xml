@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="aitools3-ie-stopwords" default="jar" basedir="..">
 
-	<property name="keeponly" value="de.aitools.ie.stopwords.**" />
+	<property name="keeponly" value="de.aitools.**" />
 	
     <path id="sources">
         <pathelement location="src" />
