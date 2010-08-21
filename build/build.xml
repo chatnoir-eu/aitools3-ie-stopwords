@@ -11,7 +11,7 @@
 	<path id="libraries"></path>
 	
 	<path id="dependencies">
-		<pathelement location="../../readonly-lib/readonly-junit-4.7" />
+		<pathelement location="../../thirdparty/thirdparty-junit-4.7" />
 	</path>
 	
 	<import file="${basedir}/../../generic/build/build-master.xml" />
