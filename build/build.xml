@@ -14,5 +14,5 @@
 		<pathelement location="../../thirdparty/thirdparty-junit-4.7" />
 	</path>
 	
-	<import file="${basedir}/../../code-generic/build/build-master.xml" />
+	<import file="${basedir}/../../code-generic/code-build/build-master.xml" />
 </project>
