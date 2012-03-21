@@ -81,13 +81,13 @@ public class StopWordList
 
 
     /* Loads the stop word list for the specified language. */
-    private static HashSet<String> loadStopWordList(Locale language) throws FileNotFoundException
+    private static HashSet<String> loadStopWordList(Locale locale) throws FileNotFoundException
     {
         File packagePath = new File(StopWordList.class.getPackage().getName().replace('.', '/'), "stopwordlists");
-        File stopWordListFile = new File(packagePath, language + StopWordList.STOP_WORD_LIST_FILENAME_SUFFIX);
+        File stopWordListFile = new File(packagePath, locale.getLanguage() + StopWordList.STOP_WORD_LIST_FILENAME_SUFFIX);
         InputStream inputStream = StopWordList.class.getClassLoader().getResourceAsStream(stopWordListFile.toString());
         if (inputStream == null)
-            throw new FileNotFoundException();
+            throw new FileNotFoundException(stopWordListFile.toString());
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
         HashSet<String> stopWords = new HashSet<String>(StopWordList.DEFAULT_INITIAL_HASHSET_CAPACITY);
