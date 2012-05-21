@@ -8,10 +8,11 @@
         <pathelement location="test" />
     </path>
 	
-	<path id="libraries"></path>
+	<path id="libraries">
+		<fileset dir="../../thirdparty/thirdparty-junit-4.10" includes="*.jar"/>
+	</path>
 	
 	<path id="dependencies">
-		<pathelement location="../../thirdparty/thirdparty-junit-4.7" />
 	</path>
 	
 	<import file="${basedir}/../../code-generic/code-build/build-master.xml" />
