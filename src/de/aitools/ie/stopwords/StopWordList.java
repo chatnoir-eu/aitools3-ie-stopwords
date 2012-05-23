@@ -34,10 +34,7 @@ public class StopWordList
     private static final int      DEFAULT_INITIAL_HASHSET_CAPACITY = 1 << 10;           // 1024.
     private final HashSet<String> STOP_WORDS;
 
-    public StopWordList()
-    {
-    	STOP_WORDS = new HashSet<String>(0);
-    }
+
 
     /**
      * Constructs a <tt>StopWordList</tt> for the specified language.
@@ -69,8 +66,7 @@ public class StopWordList
      */
     public boolean contains(String word)
     {
-        return STOP_WORDS.size() == 0 ? false : 
-        	   this.STOP_WORDS.contains(word.toLowerCase());
+        return this.STOP_WORDS.contains(word.toLowerCase());
     }
 
 
