@@ -1,7 +1,1 @@
 *.jar
-tmp
-libs
-classes
-dependency-cache
-poms
-ivy.xml
