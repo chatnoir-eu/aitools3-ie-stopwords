@@ -1,0 +1,29 @@
+AItools IE Stopwords
+====================
+
+Stoplists source
+----------------
+
+1. Basque	
+	
+	http://apache.imsam.info/lucene/java/4.6.0/lucene-4.6.0-src.tgz 
+		
+	The stoplist is inside of the package: 
+	
+	lucene-4.6.0/analysis/common/src/resources/org/apache/lucene/analysis/eu/stopwords.txt
+	
+	NOTE: These stopwords seem to be incomplete (~100 entries).
+
+2. Catalan	
+
+	https://github.com/vcl/cue.language/tree/master/src/cue/lang/stop
+	
+3. Swedish
+
+	https://github.com/vcl/cue.language/blob/master/src/cue/lang/stop/swedish
+	
+Todos
+-----
+
+	- Complete the stoplist for Basque (Alberto is working on that by January 17 2004)
+ 	- The junit included an instantiation of Swedish (se), but the file was not there. By now a new stoplist was added   
