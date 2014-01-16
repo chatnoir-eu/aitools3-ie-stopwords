@@ -43,9 +43,7 @@ public class StopWordListTest
         stopWordList = new StopWordList(new Locale("es"));
         assertTrue(stopWordList.contains("mías"));
         assertFalse(stopWordList.contains("coche"));
-     
-        //source for the catalan and basque stoplists is Lucene: 
-        //(also available at http://github.com/vcl/cue)
+
         stopWordList = new StopWordList(new Locale("ca"));
         assertTrue(stopWordList.contains("vosaltres"));
         assertFalse(stopWordList.contains("recorregut"));
@@ -58,13 +56,16 @@ public class StopWordListTest
 
 
     /**
-     * Test method for {@link de.aitools.ie.wordprocessing.stopwords.StopWordList#StopWordList(java.util.Locale)} with supported
-     * languages: Dutch, English, Finnish, French, German, Italian, Norwegian, Polish, Portuguese, Spanish, 
-     * Catalan, Basque (BUT NOT Swedish!).
+     * Test method for {@link de.aitools.ie.wordprocessing.stopwords.StopWordList#StopWordList(java.util.Locale)} 
+     * with supported languages: Basque, Catalan, Dutch, English, Finnish, 
+     * French, German, Italian, Norwegian, Polish, Portuguese, Spanish, and 
+     * Swedish.
      */
     @Test
     public void testStopWordListSupportedLanguages()
     {
+    	new StopWordList(new Locale("eu"));
+    	new StopWordList(new Locale("ca"));
         new StopWordList(new Locale("nl"));
         new StopWordList(Locale.ENGLISH);
         new StopWordList(new Locale("fi"));
@@ -74,11 +75,7 @@ public class StopWordListTest
         new StopWordList(new Locale("no"));
         new StopWordList(new Locale("pl"));
         new StopWordList(new Locale("pt"));
-        new StopWordList(new Locale("es"));
-        new StopWordList(new Locale("ca"));
-        new StopWordList(new Locale("eu"));
-        //alberto 15Jan2014: the following stopword list triggers an error.
-        //no file for the language is there!
+        new StopWordList(new Locale("es"));        
         new StopWordList(new Locale("se"));
     }
 
