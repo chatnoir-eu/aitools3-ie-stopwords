@@ -4,12 +4,7 @@ package de.aitools.ie.stopwords;
  */
 
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.HashSet;
 import java.util.Locale;
 
@@ -36,7 +31,7 @@ public class StopWordList
 
     public StopWordList()
     {
-    	STOP_WORDS = new HashSet<String>(0);
+    	STOP_WORDS = new HashSet<>(0);
     }
 
     /**
@@ -44,7 +39,6 @@ public class StopWordList
      * 
      * @param language
      *            Language.
-     * @throws FileNotFoundException
      *             If no stop word list exists for the specified language.
      * @throws IllegalArgumentException
      *             If <code>language == null</code>.
@@ -69,8 +63,19 @@ public class StopWordList
      */
     public boolean contains(String word)
     {
-        return STOP_WORDS.size() == 0 ? false : 
-        	   this.STOP_WORDS.contains(word.toLowerCase());
+        return STOP_WORDS.size() != 0 && this.STOP_WORDS.contains(word.toLowerCase());
+    }
+
+    /**
+     * Returns <tt>true</tt> if one of the words in the given array is a stop word
+     * @param words array with words. Might be a n-gram
+     * @return <tt>true</tt> if this stop word list contains one of the words in the array
+     */
+    public boolean contains(String[] words) {
+        for(String word : words) {
+            if(contains(word)) return true;
+        }
+        return false;
     }
 
 
@@ -94,7 +99,7 @@ public class StopWordList
             throw new FileNotFoundException(stopWordListFile.toString());
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
-        HashSet<String> stopWords = new HashSet<String>(StopWordList.DEFAULT_INITIAL_HASHSET_CAPACITY);
+        HashSet<String> stopWords = new HashSet<>(StopWordList.DEFAULT_INITIAL_HASHSET_CAPACITY);
         try {
             for (String word = bufferedReader.readLine(); word != null; word = bufferedReader.readLine()) {
                 stopWords.add(word);
