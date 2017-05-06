@@ -1,0 +1,30 @@
+group 'de.webis.aitools'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = [ 'src' ]
+        }
+    }
+
+    test {
+        java {
+            srcDirs = [ 'test' ]
+        }
+    }
+}
+
+dependencies {
+    testCompile fileTree(dir: "$projectDir/../../thirdparty/thirdparty-junit-4.10", include: '**/*.jar', exclude: '**/*.sources.jar')
+}
